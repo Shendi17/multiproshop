@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Créer' if not product else 'Modifier' }} un produit{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>{{ 'Créer' if not product else 'Modifier' }} un produit</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom du produit</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ product.name if product else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="category_id" class="form-label">Catégorie</label>
+            <select class="form-select" id="category_id" name="category_id" required>
+                {% for category in categories %}
+                <option value="{{ category.id }}" {% if product and product.category_id == category.id %}selected{% endif %}>{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Prix (€)</label>
+            <input type="number" step="0.01" class="form-control" id="price" name="price" value="{{ product.price if product else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="stock" name="stock" value="{{ product.stock if product else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3">{{ product.description if product else '' }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ 'Créer' if not product else 'Mettre à jour' }}</button>
+        <a href="{{ url_for('admin.products') }}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+{% endblock %}

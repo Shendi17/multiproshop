@@ -27,7 +27,7 @@ def list_products():
     products = query.paginate(page=page, per_page=per_page)
     categories = Category.query.all()
     
-    return render_template('products/list.html',
+    return render_template('pages/list.html',
                          products=products,
                          categories=categories,
                          current_category=category_id,
@@ -47,7 +47,7 @@ def search():
     else:
         products = []
     
-    return render_template('products/search.html',
+    return render_template('pages/search.html',
                          products=products,
                          query=query)
 
@@ -55,7 +55,7 @@ def search():
 def category_products(category_id):
     category = Category.query.get_or_404(category_id)
     products = Product.query.filter_by(category_id=category_id).all()
-    return render_template('products/category.html',
+    return render_template('pages/category_products.html',
                          category=category,
                          products=products)
 
@@ -63,6 +63,6 @@ def category_products(category_id):
 def product_detail(product_id):
     product = Product.query.get_or_404(product_id)
     related_products = Product.query.filter_by(category_id=product.category_id).limit(4).all()
-    return render_template('products/detail.html',
+    return render_template('pages/product_detail.html',
                          product=product,
                          related_products=related_products)

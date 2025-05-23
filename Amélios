@@ -1,1 +1,7 @@
-cd "C:\Users\Anthony\CascadeProjects\multiproshop"
+# Aller dans le dossier du projet
+Set-Location "C:\Users\Anthony\CascadeProjects\multiproshop"
+
+# Lancer le script PowerShell
+.\run_multiproshop.ps1
+
+

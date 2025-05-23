@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% extends "base.html" %}
+{% block title %}Gestion des utilisateurs{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Utilisateurs</h2>
+    <form class="row mb-3" method="get">
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="search" placeholder="Recherche nom ou email" value="{{ search|default('') }}">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-primary">Rechercher</button>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ url_for('admin.export_users') }}" class="btn btn-outline-success">Exporter CSV</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ url_for('admin.create_user') }}" class="btn btn-primary">Créer un utilisateur</a>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Rôle</th>
+                <th>Date création</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role.name if user.role else '' }}</td>
+                <td>{{ user.created_at.strftime('%d/%m/%Y') }}</td>
+                <td>
+                    <a href="{{ url_for('admin.edit_user', user_id=user.id) }}" class="btn btn-sm btn-warning">Modifier</a>
+                    <a href="{{ url_for('admin.delete_user', user_id=user.id) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% endblock %}

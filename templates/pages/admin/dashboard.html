@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Tableau de bord Administrateur</h1>
+    <div class="row g-4">
+        <!-- Utilisateurs -->
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-users fa-2x mb-2 text-primary"></i>
+                    <h5 class="card-title">Utilisateurs</h5>
+                    <a href="{{ url_for('admin.users') }}" class="btn btn-outline-primary btn-sm">Gérer</a>
+                </div>
+            </div>
+        </div>
+        <!-- Produits -->
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-box-open fa-2x mb-2 text-success"></i>
+                    <h5 class="card-title">Produits</h5>
+                    <a href="{{ url_for('admin.products') }}" class="btn btn-outline-success btn-sm">Gérer</a>
+                    <a href="{{ url_for('admin.export_products') }}" class="btn btn-link btn-sm">Exporter</a>
+                </div>
+            </div>
+        </div>
+        <!-- Commandes -->
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-shopping-cart fa-2x mb-2 text-warning"></i>
+                    <h5 class="card-title">Commandes</h5>
+                    <a href="{{ url_for('admin.orders') }}" class="btn btn-outline-warning btn-sm">Gérer</a>
+                    <a href="{{ url_for('admin.export_orders') }}" class="btn btn-link btn-sm">Exporter</a>
+                </div>
+            </div>
+        </div>
+        <!-- Catégories -->
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-tags fa-2x mb-2 text-info"></i>
+                    <h5 class="card-title">Catégories</h5>
+                    <a href="{{ url_for('admin.categories') }}" class="btn btn-outline-info btn-sm">Gérer</a>
+                </div>
+            </div>
+        </div>
+        <!-- Promotions -->
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-percent fa-2x mb-2 text-danger"></i>
+                    <h5 class="card-title">Promotions</h5>
+                    <a href="{{ url_for('admin.promotions') }}" class="btn btn-outline-danger btn-sm">Gérer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-info mt-5">
+        <i class="fas fa-info-circle"></i> Vous pouvez gérer les utilisateurs, produits, commandes, catégories et promotions depuis ce tableau de bord.
+    </div>
+</div>
+{% endblock %}

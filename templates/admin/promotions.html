@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% extends "base.html" %}
+{% block title %}Gestion des promotions{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Promotions</h2>
+    <form class="row mb-3" method="get">
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="search" placeholder="Recherche titre ou description" value="{{ search|default('') }}">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-primary">Rechercher</button>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ url_for('admin.export_promotions') }}" class="btn btn-outline-success">Exporter CSV</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ url_for('admin.create_promotion') }}" class="btn btn-primary">Créer une promotion</a>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Réduction (%)</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for promotion in promotions %}
+            <tr>
+                <td>{{ promotion.id }}</td>
+                <td>{{ promotion.title }}</td>
+                <td>{{ promotion.description }}</td>
+                <td>{{ promotion.discount }}</td>
+                <td>{{ promotion.start_date.strftime('%d/%m/%Y') if promotion.start_date else '' }}</td>
+                <td>{{ promotion.end_date.strftime('%d/%m/%Y') if promotion.end_date else '' }}</td>
+                <td>
+                    <a href="{{ url_for('admin.edit_promotion', promotion_id=promotion.id) }}" class="btn btn-sm btn-warning">Modifier</a>
+                    <a href="{{ url_for('admin.delete_promotion', promotion_id=promotion.id) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% endblock %}

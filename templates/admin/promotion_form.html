@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Créer' if not promotion else 'Modifier' }} une promotion{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>{{ 'Créer' if not promotion else 'Modifier' }} une promotion</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ promotion.title if promotion else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3">{{ promotion.description if promotion else '' }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="discount" class="form-label">Réduction (%)</label>
+            <input type="number" class="form-control" id="discount" name="discount" value="{{ promotion.discount if promotion else '' }}" min="0" max="100" required>
+        </div>
+        <div class="mb-3">
+            <label for="start_date" class="form-label">Date de début</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" value="{{ promotion.start_date|default('') }}">
+        </div>
+        <div class="mb-3">
+            <label for="end_date" class="form-label">Date de fin</label>
+            <input type="date" class="form-control" id="end_date" name="end_date" value="{{ promotion.end_date|default('') }}">
+        </div>
+        <button type="submit" class="btn btn-primary">{{ 'Créer' if not promotion else 'Mettre à jour' }}</button>
+        <a href="{{ url_for('admin.promotions') }}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+{% endblock %}

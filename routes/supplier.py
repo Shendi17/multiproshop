@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app import db
+from extensions import db
 from models.supplier import Supplier
 
 supplier_blueprint = Blueprint('supplier', __name__)

@@ -1,0 +1,72 @@
+/* Styles extraits de home_sections.html */
+.premium-feature-row {
+    background: #fffbe6;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(255,179,0,0.08);
+    margin: 32px 0 24px 0;
+    padding: 18px 0 8px 0;
+}
+.premium-feature {
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.premium-feature i {
+    color: #ffb300;
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+}
+.premium-promo {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 14px rgba(255,179,0,0.13);
+    padding: 48px 32px;
+    text-align: center;
+    margin-bottom: 22px;
+    position: relative;
+}
+.premium-promo h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.premium-promo .promo-btn {
+    background: #ffb300;
+    color: #222;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 32px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 12px;
+    transition: background 0.2s;
+}
+.premium-promo .promo-btn:hover {
+    background: #ff9900;
+    color: #fff;
+}
+.promo-side-box {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(255,179,0,0.10);
+    padding: 24px 16px;
+    margin: 0 0 18px 0;
+    font-size: 1.1rem;
+    position: relative;
+}
+.promo-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: #ff9900;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

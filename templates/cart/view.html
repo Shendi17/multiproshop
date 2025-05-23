@@ -22,7 +22,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <img src="{{ item.product.image_url or url_for('static', filename='images/default-product.jpg') }}" 
-                                         alt="{{ item.product.name }}" style="width: 50px; height: 50px; object-fit: cover;">
+                                         alt="{{ item.product.name }}" class="cart-img-thumb">
                                     <span class="ms-2">{{ item.product.name }}</span>
                                 </div>
                             </td>
@@ -31,7 +31,7 @@
                                 <form method="POST" action="{{ url_for('cart.update_quantity') }}" class="d-flex align-items-center">
                                     <input type="hidden" name="product_id" value="{{ item.product.id }}">
                                     <input type="number" name="quantity" value="{{ item.quantity }}" 
-                                           min="1" max="{{ item.product.stock }}" class="form-control" style="width: 70px;">
+                                           min="1" max="{{ item.product.stock }}" class="form-control cart-input-qty">
                                     <button type="submit" class="btn btn-sm btn-outline-primary ms-2">Mettre à jour</button>
                                 </form>
                             </td>

@@ -1,8 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_login import login_required, current_user
 from models.product import Product
 from models.order import Order, OrderItem
-from app import db
+from extensions import db
 
 cart = Blueprint('cart', __name__)
 
@@ -45,7 +45,7 @@ def view_cart():
                 'subtotal': subtotal
             })
     
-    return render_template('cart/cart.html',
+    return render_template('pages/cart.html',
                          cart_items=cart_items,
                          total=total)
 
@@ -75,6 +75,31 @@ def update_quantity(product_id):
         session['cart'] = cart
     
     return redirect(url_for('cart.view_cart'))
+
+@cart.route('/cart-total-items')
+def cart_total_items():
+    cart = session.get('cart', {})
+    total = sum(cart.values())
+    return jsonify({'total': total})
+
+@cart.route('/add-item', methods=['POST'])
+def add_item():
+    data = request.get_json()
+    product_id = data.get('product_id', type=int)
+    quantity = data.get('quantity', 1)
+    if not product_id:
+        return jsonify({'success': False, 'message': 'Produit invalide.'}), 400
+    product = Product.query.get(product_id)
+    if not product:
+        return jsonify({'success': False, 'message': 'Produit introuvable.'}), 404
+    if product.stock < quantity:
+        return jsonify({'success': False, 'message': 'Stock insuffisant.'}), 400
+    cart = session.get('cart', {})
+    cart[str(product_id)] = cart.get(str(product_id), 0) + quantity
+    session['cart'] = cart
+    session.modified = True
+    total = sum(cart.values())
+    return jsonify({'success': True, 'message': f'{quantity} {product.name} ajouté(s) au panier.', 'cart_total': total})
 
 @cart.route('/checkout', methods=['GET', 'POST'])
 @login_required
@@ -133,4 +158,4 @@ def checkout():
             flash('Une erreur est survenue lors de la commande', 'error')
             return redirect(url_for('cart.view_cart'))
     
-    return render_template('cart/checkout.html')
+    return render_template('pages/checkout.html', cart=session.get('cart', {}))

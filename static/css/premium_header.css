@@ -1,0 +1,181 @@
+/* Styles du header premium extraits des templates */
+.gap-8 { gap: 8px; }
+.gap-12 { gap: 12px; }
+.icon-large { font-size: 1.5em; }
+.form-premium-search { max-width: 600px; flex: 1; }
+.p-0 { padding: 0 !important; }
+.gap-16 { gap: 16px; }
+.d-none { display: none !important; }
+.subheader-promo { font-weight: 600; font-size: 0.98rem; color: #222; }
+.promo-highlight { color: #ffb300; }
+
+/* --------- Premium Header --------- */
+.premium-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1050;
+    background: linear-gradient(90deg, #ffb300 0%, #ffe066 100%);
+    border-bottom: 1px solid #ffe066;
+    min-height: 60px;
+    padding: 6px 24px 6px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    overflow: visible;
+}
+.premium-header .logo {
+    background: #222;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.premium-header .search-bar {
+    border-radius: 24px;
+    border: 1px solid #eee;
+    padding: 5px 14px;
+    width: 260px;
+    max-width: 100%;
+    margin: 0 14px;
+    font-size: 1rem;
+}
+.premium-header .premium-btn {
+    background: #ffbf00;
+    color: #222;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-weight: 600;
+    margin-left: 8px;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.premium-header .premium-btn:hover {
+    background: #000;
+    color: #fff;
+}
+.premium-header .header-link {
+    color: #222;
+    font-weight: 500;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color .2s;
+}
+.premium-header .header-link:hover {
+    color: #fff;
+}
+.premium-header .nav-link {
+    color: #222;
+    font-weight: 500;
+}
+.premium-header .nav-link.active {
+    color: #ff9800;
+}
+
+/* --------- Premium Subheader --------- */
+.premium-subheader {
+    margin-top: 60px !important;
+    margin-bottom: 0 !important;
+    background: #fffbe6;
+    border-bottom: 1px solid #ffe066;
+    padding: 2px 8px;
+    position: relative;
+    z-index: 1000;
+    gap: 4px;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.premium-subheader .header-link {
+    font-size: 0.98rem;
+    padding: 2px 8px;
+    margin: 0 2px;
+    border-radius: 3px;
+    color: #222;
+    font-weight: 500;
+    text-decoration: none;
+    background: transparent;
+    transition: background 0.18s, color 0.18s;
+    display: inline-block;
+    line-height: 1.15;
+}
+.premium-subheader .header-link:hover {
+    color: #ff9800;
+    background: #fff8e1;
+}
+@media (max-width: 900px) {
+    .premium-subheader {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        padding: 4px 4px;
+    }
+    .premium-subheader .header-link {
+        margin: 2px 0;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* Bouton menu hamburger compact */
+.menu-hamburger {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    padding: 2px;
+    cursor: pointer;
+    color: #333;
+    border-radius: 6px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-hamburger i {
+    font-size: 1.2em;
+    line-height: 1;
+    pointer-events: none;
+}
+.menu-hamburger:hover {
+    background: linear-gradient(90deg, #ffb300 0%, #ffe066 100%);
+    color: #ff9800;
+}
+
+/* Dropdown utilisateur personnalisé */
+.custom-user-dropdown {
+    min-width: 200px !important;
+    background: #fff !important;
+    border: 1px solid #eee !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+    padding: 0.5rem 0 !important;
+    z-index: 2000 !important;
+    right: 0 !important;
+    left: auto !important;
+    top: 110% !important;
+}
+.custom-user-dropdown .dropdown-item {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #222;
+}
+.custom-user-dropdown .dropdown-item:hover {
+    background: #ffecb3;
+    color: #ff9800;
+}
+.custom-user-dropdown .dropdown-divider {
+    margin: 0.3rem 0;
+}

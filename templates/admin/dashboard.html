@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% extends "base.html" %}
+{% block title %}Admin - Tableau de bord{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Bienvenue dans l’espace d’administration</h1>
+    <p>Vous êtes connecté en tant qu’<strong>admin</strong>.</p>
+    <hr>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-3x mb-2 text-primary"></i>
+                    <h5 class="card-title">Utilisateurs</h5>
+                    <a href="{{ url_for('admin.users') }}" class="btn btn-outline-primary">Gérer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-box-open fa-3x mb-2 text-success"></i>
+                    <h5 class="card-title">Produits</h5>
+                    <a href="{{ url_for('admin.products') }}" class="btn btn-outline-success">Gérer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-chart-line fa-3x mb-2 text-warning"></i>
+                    <h5 class="card-title">Commandes</h5>
+                    <a href="{{ url_for('admin.orders') }}" class="btn btn-outline-warning">Gérer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% endblock %}

@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app import db
+from extensions import db
 from models.ai_recommendation import AIRecommendation
 
 ai_blueprint = Blueprint('ai', __name__)

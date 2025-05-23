@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Créer' if not category else 'Modifier' }} une catégorie{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>{{ 'Créer' if not category else 'Modifier' }} une catégorie</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom de la catégorie</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ category.name if category else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3">{{ category.description if category else '' }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ 'Créer' if not category else 'Mettre à jour' }}</button>
+        <a href="{{ url_for('admin.categories') }}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+{% endblock %}

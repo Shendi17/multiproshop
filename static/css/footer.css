@@ -1,0 +1,18 @@
+/* Styles extraits de footer.html */
+.footer {
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #232526 0%, #414345 100%);
+    border-top: 4px solid #0056b3;
+    box-shadow: 0 -2px 16px rgba(0,0,0,0.12);
+}
+.footer-link {
+    color: #f1c40f;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0 12px;
+    transition: color 0.2s;
+}
+.footer-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 6px #f1c40f;
+}

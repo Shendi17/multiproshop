@@ -1,0 +1,92 @@
+/* Styles de la sidebar premium extraits des templates */
+.premium-sidebar {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    background: #fffbe6;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.09);
+    z-index: 1000;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    transform: translateX(-100%);
+}
+.premium-sidebar.show {
+    display: block;
+    transform: translateX(0);
+}
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    background: #fffbe6;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.09);
+    z-index: 1000;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    transform: translateX(-100%);
+}
+.premium-sidebar.show {
+    display: block;
+    transform: translateX(0);
+}
+    transform: translateX(0);
+}
+.premium-sidebar .sidebar-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.sidebar-categories {
+    width: 220px;
+    min-width: 180px;
+    max-width: 240px;
+    border-right: 1px solid #ffe066;
+    background: #fffbe6;
+    overflow-y: auto;
+    height: 100%;
+    flex-shrink: 0;
+}
+.sidebar-submenus {
+    min-width: 380px !important;
+    max-width: 600px !important;
+    width: 540px !important;
+    position: relative;
+    background: #fffbe6;
+    height: 100%;
+    overflow-y: auto;
+}
+.menu-submenu.active {
+    display: block !important;
+    background: #fffbe6 !important;
+    border: 0;
+    color: #222;
+    font-size: 1em;
+    z-index: 2 !important;
+    min-width: 420px !important;
+    max-width: 600px !important;
+    width: 540px !important;
+    min-height: 200px !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.06);
+    padding: 18px 18px 10px 18px;
+}
+.menu-submenu, .menu-submenu * {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+}
+.menu-submenu .row,
+.menu-submenu [class^="col-"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
